@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-console */
+/* eslint-disable react/button-has-type */
 import React from 'react';
 
 class AddTab extends React.Component {
@@ -5,7 +8,7 @@ class AddTab extends React.Component {
     super(props);
 
     this.state = {
-      url: '',
+      website: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,16 +20,19 @@ class AddTab extends React.Component {
     this.setState({ [name]: value });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   handleSubmit(e) {
     e.preventDefault();
+    const { addTab } = this.props;
+    addTab(this.state);
+    console.log('submitted');
   }
 
   render() {
-    const { url } = this.state;
+    const { website } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="url" name="url" value={url} onChange={this.handleChange} />
+        <input placeholder="Enter url" type="url" name="website" value={website} onChange={this.handleChange} />
+        <button> add </button>
       </form>
     );
   }

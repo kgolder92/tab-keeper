@@ -12,6 +12,8 @@ class App extends React.Component {
     this.state = {
       tabs: [],
     };
+
+    this.addTab = this.addTab.bind(this);
   }
 
   componentDidMount() {
@@ -37,7 +39,7 @@ class App extends React.Component {
     const { tabs } = this.state;
     return (
       <div>
-        <AddTab />
+        <AddTab addTab={this.addTab} />
         <TabList tabs={tabs} />
       </div>
     );
