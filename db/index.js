@@ -15,6 +15,6 @@ const tabSchema = mongoose.Schema({
   label: String,
 });
 
-const Tab = mongoose.model('Tab', tabSchema);
+const Tab = mongoose.model('tab', tabSchema);
 
 module.exports = Tab;
