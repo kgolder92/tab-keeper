@@ -6,6 +6,12 @@ class TabList extends React.Component {
 
     this.state = {};
   }
+
+  render() {
+    return (
+      <div> TAB LIST </div>
+    );
+  }
 }
 
 export default TabList;

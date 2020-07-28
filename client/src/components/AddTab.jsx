@@ -6,6 +6,12 @@ class AddTab extends React.Component {
 
     this.state = {};
   }
+
+  render() {
+    return (
+      <div> ADD TAB </div>
+    );
+  }
 }
 
 export default AddTab;
