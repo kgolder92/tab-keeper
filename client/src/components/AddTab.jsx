@@ -4,12 +4,30 @@ class AddTab extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      url: '',
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  handleSubmit(e) {
+    e.preventDefault();
   }
 
   render() {
+    const { url } = this.state;
     return (
-      <div> ADD TAB </div>
+      <form onSubmit={this.handleSubmit}>
+        <input type="url" name="url" value={url} onChange={this.handleChange} />
+      </form>
     );
   }
 }
