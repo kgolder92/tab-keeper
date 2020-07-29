@@ -13,6 +13,8 @@ const tabSchema = mongoose.Schema({
   id: Number,
   website: String,
   label: String,
+  title: String,
+  image: String,
 });
 
 const Tab = mongoose.model('tab', tabSchema);
