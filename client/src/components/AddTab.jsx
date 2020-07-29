@@ -9,6 +9,7 @@ class AddTab extends React.Component {
 
     this.state = {
       website: '',
+      label: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,10 +29,11 @@ class AddTab extends React.Component {
   }
 
   render() {
-    const { website } = this.state;
+    const { website, label } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <input placeholder="Enter url" type="url" name="website" value={website} onChange={this.handleChange} />
+        <input placeholder="Enter label" type="text" name="label" value={label} onChange={this.handleChange} />
         <button> add </button>
       </form>
     );

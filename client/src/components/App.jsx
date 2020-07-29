@@ -39,7 +39,8 @@ class App extends React.Component {
     const { tabs } = this.state;
     return (
       <div>
-        <AddTab addTab={this.addTab} />
+        <AddTab tabs={tabs} addTab={this.addTab} />
+        {/* <LabelSelect tabs={tabs} /> */}
         <TabList tabs={tabs} />
       </div>
     );

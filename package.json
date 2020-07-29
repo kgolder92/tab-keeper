@@ -31,6 +31,7 @@
     "lodash": "^4.17.19",
     "mongoose": "^5.9.20",
     "react": "^16.13.1",
+    "react-autosuggest": "^10.0.2",
     "react-dom": "^16.13.1",
     "webpack": "^4.43.0"
   }
