@@ -3,6 +3,15 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
 
+import {
+  Outer,
+  Container,
+  Form,
+  InputAddContainer,
+  Input,
+  LabelInput,
+} from '../style/AddTab.style';
+
 class AddTab extends React.Component {
   constructor(props) {
     super(props);
@@ -26,16 +35,24 @@ class AddTab extends React.Component {
     const { addTab } = this.props;
     addTab(this.state);
     console.log('submitted');
+
+    this.setState({ website: '', label: '' });
   }
 
   render() {
     const { website, label } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input placeholder="Enter url" type="url" name="website" value={website} onChange={this.handleChange} />
-        <input placeholder="Enter label" type="text" name="label" value={label} onChange={this.handleChange} />
-        <button> add </button>
-      </form>
+      <Outer>
+        <Container>
+          <Form onSubmit={this.handleSubmit}>
+            <InputAddContainer>
+              <Input placeholder="Enter url" type="url" name="website" value={website} onChange={this.handleChange} />
+            </InputAddContainer>
+            <LabelInput placeholder="Enter label" type="text" name="label" value={label} onChange={this.handleChange} />
+            <button> add </button>
+          </Form>
+        </Container>
+      </Outer>
     );
   }
 }
