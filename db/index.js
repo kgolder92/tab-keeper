@@ -15,6 +15,7 @@ const tabSchema = mongoose.Schema({
   label: String,
   title: String,
   image: String,
+  date: String,
 });
 
 const Tab = mongoose.model('tab', tabSchema);

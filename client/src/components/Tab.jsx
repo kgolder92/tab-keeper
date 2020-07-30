@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
+import { Container, Image } from '../style/Tab.style';
+
 class Tab extends React.Component {
   constructor(props) {
     super(props);
@@ -11,11 +13,13 @@ class Tab extends React.Component {
   render() {
     const { tab } = this.props;
     return (
-      <div>
+      <Container>
         {tab.label}
         <p> </p>
-        {tab.website}
-      </div>
+        <a rel="noreferrer" target="_blank" href={tab.website}>
+          <Image alt={tab.title} src={tab.image} />
+        </a>
+      </Container>
     );
   }
 }

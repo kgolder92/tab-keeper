@@ -33,6 +33,7 @@ app.post('/addtab', (req, res) => {
       label: req.body.label,
       title: resp.data.title,
       image: resp.data.image,
+      date: Date.now(),
     };
     db.create(tabData, (err, result) => {
       if (err) {
@@ -41,7 +42,8 @@ app.post('/addtab', (req, res) => {
         res.send(result);
       }
     });
-  });
+  })
+    .catch((err) => res.status(500).send(err));
 });
 
 app.put('/edit', (req, res) => {
