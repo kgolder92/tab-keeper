@@ -33,6 +33,7 @@
     "react": "^16.13.1",
     "react-autosuggest": "^10.0.2",
     "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1",
     "webpack": "^4.43.0"
   }
 }
