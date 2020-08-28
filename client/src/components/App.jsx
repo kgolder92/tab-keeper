@@ -16,6 +16,7 @@ class App extends React.Component {
     this.addTab = this.addTab.bind(this);
     this.getTabs = this.getTabs.bind(this);
     this.deleteTab = this.deleteTab.bind(this);
+    this.editTab = this.editTab.bind(this);
   }
 
   componentDidMount() {
@@ -43,13 +44,23 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   }
 
+  editTab(tabID, newLabel) {
+    // const { editClicked } = this.state; moved to Tab
+    // this.setState({ editClicked: true });
+    axios.put(`/edittab/${tabID}`, {
+      label: newLabel,
+    })
+      .then(() => this.getTabs())
+      .catch((err) => console.log(err));
+  }
+
   render() {
     const { tabs } = this.state;
     return (
       <div>
         <AddTab tabs={tabs} addTab={this.addTab} />
         {/* <LabelSelect tabs={tabs} /> */}
-        <TabList tabs={tabs} deleteTab={this.deleteTab} />
+        <TabList tabs={tabs} deleteTab={this.deleteTab} editTab={this.editTab} />
       </div>
     );
   }
