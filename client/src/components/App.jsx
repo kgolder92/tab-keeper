@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   deleteTab(tabID) {
-    axios.delete('/deletetab', tabID)
+    axios.delete(`/deletetab/${tabID}`)
       .then(() => this.getTabs())
       .catch((err) => console.log(err));
   }

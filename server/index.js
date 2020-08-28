@@ -52,9 +52,9 @@ app.put('/edit', (req, res) => {
   res.send('edited');
 });
 
-app.delete('/deletetab:tabID', (req, res) => {
+app.delete('/deletetab/:tabID', (req, res) => {
   console.log(req.params);
-  db.deleteOne({ _id: req.params }, (err) => {
+  db.deleteOne({ _id: req.params.tabID }, (err) => {
     if (err) {
       res.status(500).send(err);
     } else {
