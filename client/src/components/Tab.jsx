@@ -19,7 +19,6 @@ class Tab extends React.Component {
 
     this.state = {
       show: false,
-      editClicked: false,
     };
 
     this.showModal = this.showModal.bind(this);
@@ -50,21 +49,17 @@ class Tab extends React.Component {
 
   handleEdit(e) {
     e.preventDefault();
-    // console.log('edit');}
     const { tab, editTab } = this.props;
-    // const { editClicked } = this.state;
-
-    this.setState({ editClicked: true });
     editTab(tab._id);
   }
 
   render() {
-    const { editClicked, show } = this.state;
-    const { tab } = this.props;
+    const { show } = this.state;
+    const { tab, editTab } = this.props;
     const resultStr = tab.title !== '' ? tab.title : tab.website;
     return (
       <Container>
-        {/* {tab.label} */}
+        {tab.label}
         <Inner>
           {this.truncate(resultStr)}
           <a rel="noreferrer" target="_blank" href={tab.website}>
@@ -72,12 +67,10 @@ class Tab extends React.Component {
           </a>
         </Inner>
         <Control>
-          <Modal show={show} handleClose={this.hideModal} />
+          <Modal show={show} handleClose={this.hideModal} tab={tab} editTab={editTab} />
           <Edit onClick={this.showModal}> edit </Edit>
           <Delete onClick={this.handleDelete}>delete</Delete>
         </Control>
-
-
       </Container>
     );
   }

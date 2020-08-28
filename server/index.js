@@ -46,25 +46,26 @@ app.post('/addtab', (req, res) => {
     .catch((err) => res.status(500).send(err));
 });
 
-app.put('/edittab', (req, res) => {
+app.put('/edittab/:tabID', (req, res) => {
   // db.updateOne({ size: 'large' }, { name: 'T-90' }, (err, res) => {
   // });
   console.log(req.body.label);
-  db.updateOne({ _id: req.params.tabID, label: req.body.label }, (err) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
-      res.send('edited');
-    }
-  });
+  db.findOneAndUpdate({ _id: req.params.tabID }, { label: req.body.label },
+    { new: true }, (err, result) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.send(result);
+      }
+    });
 });
 
 app.delete('/deletetab/:tabID', (req, res) => {
-  db.deleteOne({ _id: req.params.tabID }, (err) => {
+  db.deleteOne({ _id: req.params.tabID }, (err, result) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      res.send('deleted');
+      res.send(result);
     }
   });
 });

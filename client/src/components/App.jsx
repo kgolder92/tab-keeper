@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import AddTab from './AddTab';
 import TabList from './TabList';
-import Modal from './Modal';
 
 class App extends React.Component {
   constructor(props) {
