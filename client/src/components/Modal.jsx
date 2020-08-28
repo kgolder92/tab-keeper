@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import { ModalContainer } from '../style/Modal.style';
+import { ModalContainer, CloseIcon } from '../style/Modal.style';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -48,8 +48,9 @@ class Modal extends React.Component {
             <input type="text" name="label" placeholder="Enter a new Label" onChange={this.handleChange} value={label} />
             {/* <input type="text" name="label" placeholder="Enter a new Title" value={label} /> */}
             <button type="submit"> Submit </button>
+            <button type="button" onClick={handleClose}> Cancel </button>
           </form>
-          <button type="button" onClick={handleClose}> Cancel </button>
+          <CloseIcon onClick={handleClose} />
         </ModalContainer>
       </div>
     );

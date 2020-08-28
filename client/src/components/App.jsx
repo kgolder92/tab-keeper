@@ -45,8 +45,6 @@ class App extends React.Component {
   }
 
   editTab(tabID, newLabel) {
-    // const { editClicked } = this.state; moved to Tab
-    // this.setState({ editClicked: true });
     axios.put(`/edittab/${tabID}`, {
       label: newLabel,
     })

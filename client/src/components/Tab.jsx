@@ -11,6 +11,8 @@ import {
   Control,
 } from '../style/Tab.style';
 
+import { Edit2Icon } from '../style/Modal.style';
+
 import Modal from './Modal';
 
 class Tab extends React.Component {
@@ -67,6 +69,9 @@ class Tab extends React.Component {
           </a>
         </Inner>
         <Control>
+          <Edit2Icon />
+          { /* change EditIcon2 to a circle icon here and in modal.style
+           within the image like in pinterest */ }
           <Modal show={show} handleClose={this.hideModal} tab={tab} editTab={editTab} />
           <Edit onClick={this.showModal}> edit </Edit>
           <Delete onClick={this.handleDelete}>delete</Delete>
