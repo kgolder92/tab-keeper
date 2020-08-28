@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
@@ -10,14 +11,30 @@ import {
   Control,
 } from '../style/Tab.style';
 
+import Modal from './Modal';
+
 class Tab extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      show: false,
+      editClicked: false,
+    };
+
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
     this.truncate = this.truncate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+  }
+
+  showModal() {
+    this.setState({ show: true });
+  }
+
+  hideModal() {
+    this.setState({ show: false });
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -28,14 +45,21 @@ class Tab extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     const { tab, deleteTab } = this.props;
-    // eslint-disable-next-line no-underscore-dangle
     deleteTab(tab._id);
   }
-  handleEdit() {
-    console.log('edit')
+
+  handleEdit(e) {
+    e.preventDefault();
+    // console.log('edit');}
+    const { tab, editTab } = this.props;
+    // const { editClicked } = this.state;
+
+    this.setState({ editClicked: true });
+    editTab(tab._id);
   }
 
   render() {
+    const { editClicked, show } = this.state;
     const { tab } = this.props;
     const resultStr = tab.title !== '' ? tab.title : tab.website;
     return (
@@ -48,9 +72,12 @@ class Tab extends React.Component {
           </a>
         </Inner>
         <Control>
-          <Edit onClick={this.handleEdit}> edit </Edit>
+          <Modal show={show} handleClose={this.hideModal} />
+          <Edit onClick={this.showModal}> edit </Edit>
           <Delete onClick={this.handleDelete}>delete</Delete>
         </Control>
+
+
       </Container>
     );
   }

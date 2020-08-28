@@ -14,10 +14,10 @@ class TabList extends React.Component {
   }
 
   render() {
-    const { tabs, deleteTab } = this.props;
+    const { tabs, deleteTab, editTab } = this.props;
     return (
       <Container>
-        { tabs.map((tab) => <Tab deleteTab={deleteTab} key={tab._id} tab={tab} />)}
+        { tabs.map((tab) => <Tab deleteTab={deleteTab} editTab={editTab} key={tab._id} tab={tab} />)}
       </Container>
     );
   }
