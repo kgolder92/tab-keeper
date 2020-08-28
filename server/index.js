@@ -52,11 +52,15 @@ app.put('/edit', (req, res) => {
   res.send('edited');
 });
 
-app.delete('/delete', (req, res) => {
-  // Tank.deleteOne({ size: 'large' }, (err) => {
-  //   if (err) return handleError(err);
-  // });
-  res.send('deleted');
+app.delete('/deletetab:tabID', (req, res) => {
+  console.log(req.params);
+  db.deleteOne({ _id: req.params }, (err) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.send('deleted');
+    }
+  });
 });
 
 const PORT = 4000;

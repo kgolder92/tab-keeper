@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import { Container, Image, Inner } from '../style/Tab.style';
+import {
+  Container,
+  Image,
+  Inner,
+  Delete,
+  Edit,
+  Control,
+} from '../style/Tab.style';
 
 class Tab extends React.Component {
   constructor(props) {
@@ -9,11 +16,23 @@ class Tab extends React.Component {
 
     this.state = {};
     this.truncate = this.truncate.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   // eslint-disable-next-line class-methods-use-this
   truncate(str) {
     return str.length > 30 ? `${str.substr(0, 30)}...` : str;
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    const { tab, deleteTab } = this.props;
+    // eslint-disable-next-line no-underscore-dangle
+    deleteTab(tab._id);
+  }
+  handleEdit() {
+    console.log('edit')
   }
 
   render() {
@@ -28,6 +47,10 @@ class Tab extends React.Component {
             <Image alt={tab.title} src={tab.image} />
           </a>
         </Inner>
+        <Control>
+          <Edit onClick={this.handleEdit}> edit </Edit>
+          <Delete onClick={this.handleDelete}>delete</Delete>
+        </Control>
       </Container>
     );
   }

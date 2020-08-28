@@ -3,6 +3,7 @@
 import React from 'react';
 
 import Tab from './Tab';
+
 import { Container } from '../style/TabList.style';
 
 class TabList extends React.Component {
@@ -13,10 +14,10 @@ class TabList extends React.Component {
   }
 
   render() {
-    const { tabs } = this.props;
+    const { tabs, deleteTab } = this.props;
     return (
       <Container>
-        { tabs.map((tab) => <Tab key={tab._id} tab={tab} />)}
+        { tabs.map((tab) => <Tab deleteTab={deleteTab} key={tab._id} tab={tab} />)}
       </Container>
     );
   }
