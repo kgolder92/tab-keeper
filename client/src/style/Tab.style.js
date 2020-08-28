@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 15em;
+  width: auto;
   height: 11em;
   border-radius: 6px;
 `;
@@ -17,4 +17,23 @@ export const Inner = styled.div`
   display: flex;
   flex-direction: column-reverse;
   text-align: center;
+`;
+
+export const Delete = styled.button`
+  margin-left: 1em;
+  height: 23px;
+  display: flex;
+  text-align: center;
+`;
+
+export const Edit = styled.button`
+  margin-left: 1em;
+  height: 23px;
+  display: flex;
+  text-align: center;
+`;
+
+export const Control = styled.div`
+  display: flex;
+  flex-flow: column;
 `;

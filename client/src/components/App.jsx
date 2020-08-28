@@ -14,6 +14,8 @@ class App extends React.Component {
     };
 
     this.addTab = this.addTab.bind(this);
+    this.getTabs = this.getTabs.bind(this);
+    this.deleteTab = this.deleteTab.bind(this);
   }
 
   componentDidMount() {
@@ -31,7 +33,13 @@ class App extends React.Component {
 
   addTab(tab) {
     axios.post('/addtab', tab)
-      .then(() => this.getTabs)
+      .then(() => this.getTabs())
+      .catch((err) => console.log(err));
+  }
+
+  deleteTab(tabID) {
+    axios.delete(`/deletetab/${tabID}`)
+      .then(() => this.getTabs())
       .catch((err) => console.log(err));
   }
 
@@ -41,7 +49,7 @@ class App extends React.Component {
       <div>
         <AddTab tabs={tabs} addTab={this.addTab} />
         {/* <LabelSelect tabs={tabs} /> */}
-        <TabList tabs={tabs} />
+        <TabList tabs={tabs} deleteTab={this.deleteTab} />
       </div>
     );
   }
