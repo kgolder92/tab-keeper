@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.10.3",
+    "@styled-icons/boxicons-regular": "^10.18.0",
+    "@styled-icons/evil": "^10.18.0",
     "@styled-icons/feather": "^10.6.0",
     "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
