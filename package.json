@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon server/index.js",
     "build": "webpack -d --watch"
   },
@@ -12,14 +12,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.10.3",
-    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "enzyme": "^3.11.0",
     "eslint": "^7.3.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.2",
     "eslint-plugin-react-hooks": "^4.0.4",
+    "jest": "^26.4.2",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
@@ -28,15 +30,18 @@
     "@styled-icons/evil": "^10.18.0",
     "@styled-icons/feather": "^10.6.0",
     "axios": "^0.19.2",
+    "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
     "bl": "^4.0.3",
     "dotenv": "^8.2.0",
+    "enzyme-adapter-react-16": "^1.15.4",
     "express": "^4.17.1",
     "lodash": "^4.17.19",
     "mongoose": "^5.9.20",
     "react": "^16.13.1",
     "react-autosuggest": "^10.0.2",
     "react-dom": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
     "styled-components": "^5.1.1",
     "styled-icons": "^10.13.0",
     "webpack": "^4.43.0"
