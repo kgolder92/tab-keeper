@@ -29,7 +29,7 @@
     "@styled-icons/boxicons-regular": "^10.18.0",
     "@styled-icons/evil": "^10.18.0",
     "@styled-icons/feather": "^10.6.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
     "bl": "^4.0.3",
